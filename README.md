@@ -1,2 +1,6 @@
 # ONLINE-LIVE-INTERACTION-PROTOTYPE
 ONLINE LIVE INTERACTION PROTOTYPE with NVIDIA Jetson
+
+# Overview
+Live and entertainment industry has faced difficult time because of COVID-19. So, artists have sterted online live more. Because they can't host on real site live. On real site live, artists and audiences enjoy the live by interaction, for example, call and response. However, online live, artists and audiences can't have any interaction, it makes live feeling some kind of lacks. That's the issue definition of this project. To solve the issue, I aim to develop artists and audiences interaction system. In this project I propose a system of interaction system that edge device recognizes arm gesture from audience by USB camera and notifys it to artists. In this time, we develop prototype of one. In this prototype, edge device recognizes arm gesture from person and plays YouTube video. Edge device is Jetson Nano with DNN model of AI recognizing arm gesture. By this prototype artists and audience interaction system described above can be.
+# 
