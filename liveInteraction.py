@@ -6,14 +6,13 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 import numpy as np
 import cv2
-import time
 #import webbrowser
 
-if __name__ == '__main__':
+def ReadCamera():
     # parse options
-    parser = argparse.ArgumentParser(description='tf-pi.')
-    parser.add_argument('-m', '--model', default='./my_model_aug.h5')
-    parser.add_argument('-l', '--labels', default='./labels.txt')
+    parser = argparse.ArgumentParser(description='X')
+    parser.add_argument('-m', '--model', default='./model/x_model.h5')
+    parser.add_argument('-l', '--labels', default='./model/x_labels.txt')
 
     args = parser.parse_args()
 
@@ -54,9 +53,7 @@ if __name__ == '__main__':
             X.append(img)
             X = np.asarray(X)
             X = X/255.0
-            start = time.time()
             preds = model_pred.predict(X)
-            elapsed_time = time.time() - start
 
             pred_label = ''
 
@@ -74,12 +71,6 @@ if __name__ == '__main__':
                 if xCounter > 5:
                     break
 
-            # Put speed
-            speed_info = '%s: %f' % ('speed=', elapsed_time)
-            # print(speed_info)
-            cv2.putText(capture, speed_info, (10, 50),
-                  cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 255), 1, cv2.LINE_AA)
-
             # Put label
             cv2.putText(capture, pred_label, (10, 100),
                   cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 255), 1, cv2.LINE_AA)
@@ -90,5 +81,9 @@ if __name__ == '__main__':
 
     cam.release()
     cv2.destroyAllWindows()
+
+if __name__ == '__main__':
+    ReadCamera()
+
 
     #webbrowser.open_new("https://www.youtube.com/embed/dcpQYafcvCg?autoplay=1")
