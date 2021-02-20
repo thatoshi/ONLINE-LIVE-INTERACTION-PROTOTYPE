@@ -6,9 +6,12 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 import numpy as np
 import cv2
-#import webbrowser
+import webbrowser
 
 def ReadCamera():
+
+    ret = False
+
     # parse options
     parser = argparse.ArgumentParser(description='X')
     parser.add_argument('-m', '--model', default='./model/x_model.h5')
@@ -69,6 +72,7 @@ def ReadCamera():
             if pred_label == "x":
                 xCounter +=1
                 if xCounter > 5:
+                    ret = True
                     break
 
             # Put label
@@ -81,9 +85,12 @@ def ReadCamera():
 
     cam.release()
     cv2.destroyAllWindows()
+    return ret
 
 if __name__ == '__main__':
-    ReadCamera()
-
-
-    #webbrowser.open_new("https://www.youtube.com/embed/dcpQYafcvCg?autoplay=1")
+    ret = ReadCamera()
+    if ret == True:
+        print('Launching Browser')
+        webbrowser.open_new("https://www.youtube.com/embed/dcpQYafcvCg?autoplay=1")
+    else:
+        print('Nothing to do')
