@@ -10,7 +10,7 @@ In this prototype, I'm describing the billboard charted artist [Babymetal](https
 # AI model and Training of Deep Learning
 - Base DNN model : Simple MNIST convnet
 - Number of training data : Over 200 photos each arm gesture  (X or not)
-- Training epoch : 30
+- Training epoch : 20
 
 I tarined my model by condition above. Examle training data are below.
 
@@ -18,3 +18,36 @@ I tarined my model by condition above. Examle training data are below.
 <img src="Images/ExampleTraining-NOT-X.jpg" width="320">
 
 First one is training data for X. Second one is training data for Not-X. I tarained my model on [Google Colab](https://colab.research.google.com/notebooks/) with Keras and TensorFlow running on GPU.
+
+As Evaluation of the DNN model, training and validation loss by epoch is shown in below.
+
+<img src="Images/ModelLerningProgress.png" width="320">
+
+Next, testing resuls interferenced by test images are show in below.
+
+<img src="Images/ModelTesting.png" width="640">
+
+# Edge System
+Hardware: Edge device is NVIDIA Jetson Nano, and video source is USB Camera of Logitec C270.
+
+Sosftware: Inference framework is Kras and TensorFlow running on GPU. When the DNN model calassifies video source as "X", browser is launched and played the YouTube Video.
+
+Picture is here.
+
+<img src="Images/ExampleTraining-NOT-X.jpg" width="320">
+
+
+# Demo 
+There is [full video]((https://youtu.be/96_-Ljowg5E)) the Edge system running. In this video, I select [NVIDIA Hottest Announcements at NVIDIA GTC 2020 October](https://youtu.be/CKnipnFsuFo) instead of [Ijime,Dame,Zettai - Live at Sonisphere 2014,UK (OFFICIAL)](https://www.youtube.com/watch?t=117&v=Ro-_cbfdrYE&feature=youtu.be), because of copyright.
+
+# Setup Proecedure to Run
+- Hardware
+- JetPack
+- SWAP
+- Installing TensorFlow
+- Clone Project
+- Run Project
+- Appendex.
+
+# Acknowledgments
+I've learned AI from this [book](https://www.amazon.co.jp/dp/B08R632HML/).
