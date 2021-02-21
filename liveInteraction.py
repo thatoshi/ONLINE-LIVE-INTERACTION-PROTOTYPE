@@ -38,7 +38,7 @@ def ProcessInference():
             break
         
         key = cv2.waitKey(1)
-        if key == 27:  # when ESC key is pressed break
+        if key == 27:  # ESC key strike to exit
             break
 
         X = []
@@ -66,6 +66,8 @@ def ProcessInference():
             if xCounter > 5:
                 ret = True
                 break
+        else :
+            xCounter = 0
 
         # Put label & Show
         cv2.putText(capture, pred_label, (10, 100),
