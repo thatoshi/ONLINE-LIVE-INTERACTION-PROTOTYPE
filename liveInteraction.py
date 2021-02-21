@@ -70,7 +70,7 @@ def ProcessInference(args):
 
         # Put label & Show
         cv2.putText(capture, pred_label, (10, 100),
-                cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 255), 1, cv2.LINE_AA)
+                cv2.FONT_HERSHEY_DUPLEX, 3, (0, 0, 255), 1, cv2.LINE_AA)
         cv2.imshow('ONLINE-LIVE-INTERACTION-PROTOTYPE', capture)
 
     camera.release()
