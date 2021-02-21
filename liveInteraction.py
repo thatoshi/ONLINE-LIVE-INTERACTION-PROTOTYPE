@@ -16,7 +16,8 @@ def ReadCamera():
     parser = argparse.ArgumentParser(description='X')
     parser.add_argument('-m', '--model', default='./model/x_model.h5')
     parser.add_argument('-l', '--labels', default='./model/x_labels.txt')
-
+    parser.add_argument('-v', '--video')
+ 
     args = parser.parse_args()
 
     labels = []
@@ -91,6 +92,12 @@ if __name__ == '__main__':
     ret = ReadCamera()
     if ret == True:
         print('Launching Browser')
-        webbrowser.open_new("https://www.youtube.com/embed/dcpQYafcvCg?autoplay=1")
+        parser = argparse.ArgumentParser(description='X')
+        parser.add_argument('-m', '--model', default='./model/x_model.h5')
+        parser.add_argument('-l', '--labels', default='./model/x_labels.txt')
+        parser.add_argument('-v', '--video')
+        args = parser.parse_args()
+        print(args.video)
+        webbrowser.open_new(args.video)
     else:
         print('Nothing to do')
