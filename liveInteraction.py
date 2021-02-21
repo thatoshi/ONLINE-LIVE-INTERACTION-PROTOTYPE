@@ -8,15 +8,15 @@ import numpy as np
 import cv2
 import webbrowser
 
-def ProcessInference():
+def ProcessInference(args):
 
     ret = False
 
     # parse options
-    parser = argparse.ArgumentParser(description='X')
-    parser.add_argument('-m', '--model', default='./model/x_model.h5')
-    parser.add_argument('-l', '--labels', default='./model/x_labels.txt')
-    parser.add_argument('-v', '--video')
+    # parser = argparse.ArgumentParser(description='X')
+    # parser.add_argument('-m', '--model', default='./model/x_model.h5')
+    # parser.add_argument('-l', '--labels', default='./model/x_labels.txt')
+    # parser.add_argument('-v', '--video')
  
     args = parser.parse_args()
 
@@ -24,7 +24,6 @@ def ProcessInference():
     with open(args.labels, 'r') as f:
         for line in f:
             labels.append(line.rstrip())
-    print(labels)
  
     x_model_pred = tf.keras.models.load_model(args.model)
 
@@ -79,14 +78,18 @@ def ProcessInference():
     return ret
 
 if __name__ == '__main__':
-    ret = ProcessInference()
+    parser = argparse.ArgumentParser(description='X')
+    parser.add_argument('-m', '--model', default='./model/x_model.h5')
+    parser.add_argument('-l', '--labels', default='./model/x_labels.txt')
+    parser.add_argument('-v', '--video')
+    
+    args = parser.parse_args()
+    
+    ret = ProcessInference(args)
+    
     if ret == True:
         print('Launching Browser')
-        parser = argparse.ArgumentParser(description='X')
-        parser.add_argument('-m', '--model', default='./model/x_model.h5')
-        parser.add_argument('-l', '--labels', default='./model/x_labels.txt')
-        parser.add_argument('-v', '--video')
-        args = parser.parse_args()
+
         print(args.video)
         webbrowser.open_new(args.video)
     else:
