@@ -30,8 +30,6 @@ def ProcessInference():
 
     camera = cv2.VideoCapture(0)
 
-    max_count = 0
-    count = 0
     xCounter = 0
     while True:
         ret, capture = camera.read()
@@ -43,41 +41,36 @@ def ProcessInference():
         if key == 27:  # when ESC key is pressed break
             break
 
-        count += 1
-        if count > max_count:
-            X = []
-            image = capture.copy()
-            image = cv2.resize(image, (64, 64))
-            image = img_to_array(image)
-            X.append(image)
-            X = np.asarray(X)
-            X = X/255.0
-            preds = x_model_pred.predict(X)
+        X = []
+        image = capture.copy()
+        image = cv2.resize(image, (64, 64))
+        image = img_to_array(image)
+        X.append(image)
+        X = np.asarray(X)
+        X = X/255.0
+        preds = x_model_pred.predict(X)
 
-            pred_label = ''
+        pred_label = ''
 
-            label_num = 0
-            tmp_max_pred = 0
-            print(preds)
-            for i in preds[0]:
-                if i > tmp_max_pred:
-                    pred_label = labels[label_num]
-                    tmp_max_pred = i
-                label_num += 1
+        label_num = 0
+        tmp_max_pred = 0
+        print(preds)
+        for i in preds[0]:
+            if i > tmp_max_pred:
+                pred_label = labels[label_num]
+                tmp_max_pred = i
+            label_num += 1
 
-            if pred_label == "x":
-                xCounter +=1
-                if xCounter > 5:
-                    ret = True
-                    break
+        if pred_label == "x":
+            xCounter +=1
+            if xCounter > 5:
+                ret = True
+                break
 
-            # Put label
-            cv2.putText(capture, pred_label, (10, 100),
-                  cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 255), 1, cv2.LINE_AA)
-
-            #cv2.imshow('tf-pi inspector', image_org)
-            cv2.imshow('ONLINE-LIVE-INTERACTION-PROTOTYPE', capture)
-            count = 0
+        # Put label & Show
+        cv2.putText(capture, pred_label, (10, 100),
+                cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 255), 1, cv2.LINE_AA)
+        cv2.imshow('ONLINE-LIVE-INTERACTION-PROTOTYPE', capture)
 
     camera.release()
     cv2.destroyAllWindows()
