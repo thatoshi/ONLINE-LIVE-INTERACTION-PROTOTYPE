@@ -15,7 +15,7 @@ In this prototype, I'm describing the billboard charted artist [Babymetal](https
 I tarined my model by condition above. Examle training data are below.
 
 <img src="Images/ExampleTraining-X.jpg" width="320">
-<img src="Images/ExampleTraining-NOT-X.jpg" width="320">
+<img src="Images/ExampleTraining-Not-X.jpg" width="320">
 
 First one is training data for X. Second one is training data for NOT-X. I tarained my model on [Google Colab](https://colab.research.google.com/notebooks/) with Keras and TensorFlow running on GPU.
 
