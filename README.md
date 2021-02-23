@@ -59,7 +59,7 @@ Launching a bash terminal.
 ```
 git clone https://github.com/thatoshi/ONLINE-LIVE-INTERACTION-PROTOTYPE.git
 cd ONLINE-LIVE-INTERACTION-PROTOTYPE
-./liveInteraction.sh https://www.youtube.com/watch?t=117&v=Ro-_cbfdrYE&feature=youtu.be
+./liveInteraction.sh https://www.youtube.com/watch?v=Ro-_cbfdrYE
 ```
 
 - Appendix<br>
