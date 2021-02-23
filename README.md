@@ -15,7 +15,7 @@ In this prototype, I'm describing the billboard charted artist [Babymetal](https
 I tarined my model by condition above. Examle training data are below.
 
 <img src="Images/ExampleTraining-X.jpg" width="320">
-<img src="Images/ExampleTraining-NOT-X.jpg" width="320">
+<img src="Images/ExampleTraining-Not-X.jpg" width="320">
 
 First one is training data for X. Second one is training data for NOT-X. I tarained my model on [Google Colab](https://colab.research.google.com/notebooks/) with Keras and TensorFlow running on GPU.
 
@@ -28,8 +28,7 @@ Inference framework is Kras and TensorFlow running on GPU. When the DNN model ca
 
 Picture of the edge system is here.
 
-<img src="Images/EdgeSystem.jpeg
-" width="320">
+<img src="Images/EdgeSystem.jpeg" width="320">
 
 # Demo 
 There is [FULL VIDEO]((https://youtu.be/96_-Ljowg5E)) the Edge system running. In this video, I select [NVIDIA Hottest Announcements at NVIDIA GTC 2020 October](https://youtu.be/CKnipnFsuFo) instead of [Ijime,Dame,Zettai - Live at Sonisphere 2014,UK (OFFICIAL)](https://www.youtube.com/watch?t=117&v=Ro-_cbfdrYE&feature=youtu.be), because of copyright. Pictures doing inference are as follows. Fist one is X, second one is NOT-X.
